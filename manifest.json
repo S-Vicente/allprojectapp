@@ -1,0 +1,12 @@
+{
+  "name": "AllProjectApp",
+  "short_name": "APApp",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#DDE0BD",
+  "theme_color": "#D0D1AC",
+  "icons": [
+    { "src": "https://via.placeholder.com/192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "https://via.placeholder.com/512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
