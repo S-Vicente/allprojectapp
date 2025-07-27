@@ -1,0 +1,45 @@
+name: Build Android APK
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-apk:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Java JDK 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install Bubblewrap CLI
+        run: npm install -g @bubblewrap/cli
+
+      - name: Initialize TWA project
+        run: |
+          npx bubblewrap init \
+            --manifest=https://allprojectapp.vercel.app/manifest.json \
+            --domain=allprojectapp.vercel.app \
+            --applicationId=com.S-Vicente.allprojectapp \
+            --display=standalone \
+            --no-interactive
+
+      - name: Build Release APK
+        working-directory: twa
+        run: ./gradlew assembleRelease
+
+      - name: Publish APK artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: allprojectapp-apk
+          path: twa/android/app/build/outputs/apk/release/app-release.apk
