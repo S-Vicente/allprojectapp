@@ -1,12 +1,25 @@
 {
+  "id": "/",
   "name": "AllProjectApp",
   "short_name": "APApp",
-  "start_url": ".",
+  "description": "Organizador de tarefas pessoais com filtros, notificações e progresso",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#DDE0BD",
   "theme_color": "#D0D1AC",
   "icons": [
-    { "src": "https://via.placeholder.com/192.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "https://via.placeholder.com/512.png", "sizes": "512x512", "type": "image/png" }
-  ]
+    {
+      "src": "https://via.placeholder.com/192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://via.placeholder.com/512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "launch_handler": {}
 }
